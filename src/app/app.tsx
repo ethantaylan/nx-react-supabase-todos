@@ -1,6 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import './app.module.styl';
+import { Auth } from './components/auth/auth';
 
 export function App() {
-  return <h1>Hello world</h1>;
+  return (
+    <div className='App'>
+      <Auth />
+    </div>
+  );
 }
