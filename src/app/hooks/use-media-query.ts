@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 
-export const Mobile = () => {
+export const useMobile = () => {
   const matches = useMediaQuery('(max-width: 380px)');
   return matches;
 };
 
-export const Tablet = () => {
+export const useTablet = () => {
   const matches = useMediaQuery('(max-width: 768px)');
   return matches;
 };
 
-export const Desktop = () => {
+export const useDesktop = () => {
   const matches = useMediaQuery('(max-width: 992px)');
   return matches;
 };

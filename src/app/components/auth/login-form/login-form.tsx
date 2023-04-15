@@ -1,35 +1,61 @@
+import React from 'react';
 import './login-form.styl';
+import { useTablet } from 'src/app/hooks/use-media-query';
 
-export default function LoginForm() {
+interface LoginFormProps {
+  onConnect: () => void;
+  onSubscribe: () => void;
+  onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangePw: (event: React.ChangeEvent<HTMLInputElement>) => void;
+
+  email: string;
+  pw: string;
+}
+
+export const LoginForm: React.FC<LoginFormProps> = ({
+  onConnect,
+  onSubscribe,
+  email,
+  pw,
+  onChangeEmail,
+  onChangePw,
+}) => {
+  const tablet = useTablet();
 
   return (
-    <form className="w-25">
-      <h1 className="text-center w-100 mb-5">Login</h1>
-
+    <div className={` input-box p-5 ${tablet ? 'w-100' : 'w-35'}`}>
+      <h1 className="text-center display-1 w-100 mb-5">📝</h1>
       <div className="form-group">
-        <label htmlFor="exampleInputEmail1">Adresse mail</label>
+        <label>Adresse mail</label>
         <input
-          placeholder="Benoit"
+          onChange={onChangeEmail}
+          value={email}
           type="Prénom"
           className="form-control mb-4"
         />
-        <label htmlFor="exampleInputEmail1">Mot de passe</label>
-        <input type="email" className="form-control" />
+
+        <label>Mot de passe</label>
+        <input
+          onChange={onChangePw}
+          value={pw}
+          type="password"
+          className="form-control"
+        />
       </div>
       <div className="d-flex justify-content-between">
         <button
-          className="mt-5 sign-in btn btn-primary text-white"
-          type="submit"
+          onClick={onConnect}
+          className="mt-5 w-100 sign-in btn btn-primary text-white"
         >
           Se connecter
         </button>
-        <button
-          className="mt-5 btn btn-outline-secondary text-white"
-          type="submit"
-        >
-          S'inscrire
-        </button>
       </div>
-    </form>
+      <p className="mt-4 cursor-pointer text-secondary text-center">
+        <small>Mot de passe oublié</small>
+      </p>
+      <p className="mt-4 cursor-pointer text-secondary text-center">
+        <small onClick={onSubscribe} >S'inscrire</small>
+      </p>
+    </div>
   );
-}
+};
