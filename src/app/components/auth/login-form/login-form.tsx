@@ -23,7 +23,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   const tablet = useTablet();
 
   return (
-    <div className={` input-box p-5 ${tablet ? 'w-100' : 'w-35'}`}>
+    <div className={` input-box p-5 ${tablet ? 'w-100' : 'w-50'}`}>
       <h1 className="text-center display-1 w-100 mb-5">📝</h1>
       <div className="form-group">
         <label>Adresse mail</label>

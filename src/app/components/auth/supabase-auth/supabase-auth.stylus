@@ -1,7 +1,3 @@
 .supabase-auth-ui_ui-input {
     color: white !important;
 }
-
-.w-35 {
-    width: 35%;
-}

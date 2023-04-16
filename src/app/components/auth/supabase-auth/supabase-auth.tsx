@@ -2,7 +2,6 @@ import { Auth } from '@supabase/auth-ui-react';
 import { createClient } from '@supabase/supabase-js';
 import { Config } from '../../../config/index';
 import {
-  // Import predefined theme
   ThemeSupa,
 } from '@supabase/auth-ui-shared';
 import { useTablet } from 'src/app/hooks/use-media-query';
@@ -14,7 +13,7 @@ export const SupabaseAuth = () => {
   const tablet = useTablet()
 
   return (
-    <div className={`input-box p-5 ${tablet ? "w-100" : 'w-35'}`}>
+    <div className={`input-box p-5 ${tablet ? "w-100" : 'w-100'}`}>
       <Auth
         theme='light'
         socialLayout="horizontal"
